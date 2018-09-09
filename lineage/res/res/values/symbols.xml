@@ -120,6 +120,8 @@
 
     <!-- About device info screen -->
     <java-symbol type="string" name="build_date" />
+    <java-symbol type="string" name="havoc_api_level" />
+    <java-symbol type="string" name="havoc_updates" />
     <java-symbol type="string" name="havoc_version" />
     <java-symbol type="string" name="lineage_vendor_security_patch" />
 

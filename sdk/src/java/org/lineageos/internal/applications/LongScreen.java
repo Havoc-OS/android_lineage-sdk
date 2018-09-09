@@ -66,16 +66,14 @@ public class LongScreen {
 
     public void addApp(String packageName) {
         mApps.add(packageName);
-        LineageSettings.System.putStringForUser(mContext.getContentResolver(),
-                LineageSettings.System.LONG_SCREEN_APPS, String.join(",", mApps),
-                UserHandle.USER_CURRENT);
+        LineageSettings.System.putString(mContext.getContentResolver(),
+                LineageSettings.System.LONG_SCREEN_APPS, String.join(",", mApps));
     }
 
     public void removeApp(String packageName) {
         mApps.remove(packageName);
-        LineageSettings.System.putStringForUser(mContext.getContentResolver(),
-                LineageSettings.System.LONG_SCREEN_APPS, String.join(",", mApps),
-                UserHandle.USER_CURRENT);
+        LineageSettings.System.putString(mContext.getContentResolver(),
+                LineageSettings.System.LONG_SCREEN_APPS, String.join(",", mApps));
     }
 
     public void setApps(Set<String> apps) {
@@ -108,7 +106,7 @@ public class LongScreen {
             String apps = LineageSettings.System.getStringForUser(resolver,
                     LineageSettings.System.LONG_SCREEN_APPS,
                     UserHandle.USER_CURRENT);
-            if (apps != null && !apps.isEmpty()) {
+            if (apps != null) {
                 setApps(new HashSet<>(Arrays.asList(apps.split(","))));
             } else {
                 setApps(new HashSet<>());
